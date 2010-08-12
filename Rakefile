@@ -42,33 +42,6 @@ rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
-unless ENV['NOBUNDLE']
-  begin
-    require 'sniff'
-    require 'sniff/tasks'
-  rescue LoadError
-    puts 'Sniff gem not found, sniff tasks unavailable'
-  end
-
-  require 'cucumber'
-  require 'cucumber/rake/task'
-  
-  desc 'Run all cucumber tests'
-  Cucumber::Rake::Task.new(:features) do |t|
-    t.cucumber_opts = "features --format pretty"
-  end
-  
-  desc "Run all tests with RCov"
-  Cucumber::Rake::Task.new(:features_with_coverage) do |t|
-    t.cucumber_opts = "features --format pretty"
-    t.rcov = true
-    t.rcov_opts = ['--exclude', 'features']
-  end
-  
-  task :test => :features
-  task :default => :features
-end
-
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
