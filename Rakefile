@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake/rdoctask'
 require 'jeweler'
 
-if ENV['BUNDLER'] == 'true'
+if ENV['BUNDLE'] == 'true'
   begin
     require 'bundler'
     Bundler.setup
