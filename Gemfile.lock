@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    emitter (0.0.0)
+    emitter (0.0.1)
+      activesupport (= 3.0.0.beta4)
       characterizable (>= 0.0.13)
       cohort_scope (~> 0.0)
       data_miner (= 0.5.2)
