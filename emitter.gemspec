@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{emitter}
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andy Rossmeissl", "Seamus Abshere", "Ian Hough", "Matt Kling", "Derek Kastner"]
@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<cohort_scope>, [">= 0.0.7"])
       s.add_runtime_dependency(%q<data_miner>, [">= 0.5.3"])
       s.add_runtime_dependency(%q<earth>, [">= 0.0.28"])
+      s.add_runtime_dependency(%q<falls_back_on>, ["= 0.0.3"])
       s.add_runtime_dependency(%q<fast_timestamp>, [">= 0.0.4"])
       s.add_runtime_dependency(%q<leap>, [">= 0.4.3"])
       s.add_runtime_dependency(%q<summary_judgement>, [">= 1.3.8"])
@@ -58,6 +59,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<cohort_scope>, [">= 0.0.7"])
       s.add_dependency(%q<data_miner>, [">= 0.5.3"])
       s.add_dependency(%q<earth>, [">= 0.0.28"])
+      s.add_dependency(%q<falls_back_on>, ["= 0.0.3"])
       s.add_dependency(%q<fast_timestamp>, [">= 0.0.4"])
       s.add_dependency(%q<leap>, [">= 0.4.3"])
       s.add_dependency(%q<summary_judgement>, [">= 1.3.8"])
@@ -76,6 +78,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<cohort_scope>, [">= 0.0.7"])
     s.add_dependency(%q<data_miner>, [">= 0.5.3"])
     s.add_dependency(%q<earth>, [">= 0.0.28"])
+    s.add_dependency(%q<falls_back_on>, ["= 0.0.3"])
     s.add_dependency(%q<fast_timestamp>, [">= 0.0.4"])
     s.add_dependency(%q<leap>, [">= 0.4.3"])
     s.add_dependency(%q<summary_judgement>, [">= 1.3.8"])
