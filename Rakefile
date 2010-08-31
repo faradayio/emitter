@@ -30,7 +30,7 @@ Jeweler::Tasks.new do |gem|
   gem.add_dependency 'characterizable', '>=0.0.16'
   gem.add_dependency 'cohort_scope', '>=0.0.7'
   gem.add_dependency 'data_miner', '>=0.5.3' unless ENV['LOCAL_DATA_MINER']
-  gem.add_dependency 'earth', '>=0.0.27'
+  gem.add_dependency 'earth', '>=0.0.28'
   gem.add_dependency 'falls_back_on', '>=0.0.2'
   gem.add_dependency 'fast_timestamp', '>=0.0.4'
   gem.add_dependency 'leap', '>=0.4.3' unless ENV['LOCAL_LEAP']
