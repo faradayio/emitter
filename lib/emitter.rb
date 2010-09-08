@@ -10,7 +10,6 @@ module BrighterPlanet
   module Emitter
     def included(base)
       base.extend ClassMethods
-      base.extend AssociationClassMethods if base.respond_to? :reflect_on_all_associations
       
       emitter_klass = self.to_s.split('::').last.underscore
 
@@ -29,15 +28,6 @@ module BrighterPlanet
       def add_implicit_characteristics
         decisions[:emission].committees.map(&:name).reject { |c| characteristics.keys.unshift(:emission).include? c }.each do |c|
           characterize { has c }
-        end
-      end
-    end
-    
-    module AssociationClassMethods
-      def run_data_miner_on_belongs_to_associations
-        reflect_on_all_associations(:belongs_to).each do |a|
-          next if a.options[:polymorphic]
-          a.klass.run_data_miner!
         end
       end
     end
