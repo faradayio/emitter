@@ -1,11 +1,3 @@
-require 'cohort_scope'
-require 'falls_back_on'
-require 'falls_back_on/active_record_ext'
-# sabshere 8/15/10 why aren't these required here?
-# require 'characterizable'
-# require 'leap'
-# require 'weighted_average'
-
 module BrighterPlanet
   module Emitter
     def included(base)
@@ -13,14 +5,33 @@ module BrighterPlanet
       
       emitter_klass = self.to_s.split('::').last.underscore
 
-      require "#{emitter_klass}/carbon_model"
-      require "#{emitter_klass}/characterization"
-      require "#{emitter_klass}/data"
-      require "#{emitter_klass}/summarization"
+      %w{carbon_model characterization data fallback relationships summarization}.each do |component|
+        begin
+          require "#{emitter_klass}/#{component}"
+        rescue LoadError
+        end
+      end
 
+      require 'leap'
+      require 'cohort_scope'
       base.send :include, const_get('CarbonModel')
+
+      require 'characterizable'
       base.send :include, const_get('Characterization')
+
+      require 'data_miner'
       base.send :include, const_get('Data')
+
+      if const_defined?('Fallback')
+        require 'falls_back_on'
+        require 'falls_back_on/active_record_ext'
+        base.send :include, const_get('Fallback') 
+      end
+
+      if const_defined?('Relationships')
+        base.send :include, const_get('Relationships')
+      end
+
       base.send :include, const_get('Summarization')
     end
     
