@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{emitter}
-  s.version = "0.0.13"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andy Rossmeissl", "Seamus Abshere", "Ian Hough", "Matt Kling", "Derek Kastner"]
@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
      "spec/fixtures/dirigible/lib/dirigible/characterization.rb",
      "spec/fixtures/dirigible/lib/dirigible/data.rb",
      "spec/fixtures/dirigible/lib/dirigible/fallback.rb",
+     "spec/fixtures/dirigible/lib/dirigible/relationships.rb",
      "spec/fixtures/dirigible/lib/dirigible/summarization.rb",
      "spec/fixtures/dirigible/lib/dirigible.rb",
      "spec/spec_helper.rb"
