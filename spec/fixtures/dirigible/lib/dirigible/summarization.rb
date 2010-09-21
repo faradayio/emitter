@@ -1,5 +1,3 @@
-require 'summary_judgement'
-
 module BrighterPlanet
   module Dirigible
     module Summarization

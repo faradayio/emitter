@@ -1,5 +1,3 @@
-require 'characterizable'
-
 module BrighterPlanet
   module Dirigible
     module Characterization

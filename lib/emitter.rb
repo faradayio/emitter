@@ -35,6 +35,7 @@ module BrighterPlanet
         base.send :include, const_get('Relationships')
       end
 
+      require 'summary_judgement'
       base.extend SummaryJudgement
       base.send :include, const_get('Summarization')
     end

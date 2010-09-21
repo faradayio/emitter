@@ -1,5 +1,3 @@
-require 'leap'
-
 module BrighterPlanet
   module Dirigible
     module CarbonModel
