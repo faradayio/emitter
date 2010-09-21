@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andy Rossmeissl", "Seamus Abshere", "Ian Hough", "Matt Kling", "Derek Kastner"]
-  s.date = %q{2010-09-20}
+  s.date = %q{2010-09-21}
   s.description = %q{A software model in Ruby for the greenhouse gas emissions}
   s.email = %q{derek@brighterplanet.com}
   s.extra_rdoc_files = [
@@ -25,6 +25,21 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{The mother of all carbon models}
+  s.test_files = [
+    "spec/emitter_spec.rb",
+     "spec/fixtures/biplane/lib/biplane/carbon_model.rb",
+     "spec/fixtures/biplane/lib/biplane/characterization.rb",
+     "spec/fixtures/biplane/lib/biplane/data.rb",
+     "spec/fixtures/biplane/lib/biplane/summarization.rb",
+     "spec/fixtures/biplane/lib/biplane.rb",
+     "spec/fixtures/dirigible/lib/dirigible/carbon_model.rb",
+     "spec/fixtures/dirigible/lib/dirigible/characterization.rb",
+     "spec/fixtures/dirigible/lib/dirigible/data.rb",
+     "spec/fixtures/dirigible/lib/dirigible/fallback.rb",
+     "spec/fixtures/dirigible/lib/dirigible/summarization.rb",
+     "spec/fixtures/dirigible/lib/dirigible.rb",
+     "spec/spec_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
@@ -37,6 +52,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 2.0.0.beta.17"])
+      s.add_development_dependency(%q<sniff>, ["~> 0.1.12"])
       s.add_runtime_dependency(%q<activesupport>, [">= 3.0.0"])
       s.add_runtime_dependency(%q<characterizable>, [">= 0.0.16"])
       s.add_runtime_dependency(%q<cohort_scope>, [">= 0.0.7"])
@@ -56,6 +72,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 2.0.0.beta.17"])
+      s.add_dependency(%q<sniff>, ["~> 0.1.12"])
       s.add_dependency(%q<activesupport>, [">= 3.0.0"])
       s.add_dependency(%q<characterizable>, [">= 0.0.16"])
       s.add_dependency(%q<cohort_scope>, [">= 0.0.7"])
@@ -76,6 +93,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<rdoc>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 2.0.0.beta.17"])
+    s.add_dependency(%q<sniff>, ["~> 0.1.12"])
     s.add_dependency(%q<activesupport>, [">= 3.0.0"])
     s.add_dependency(%q<characterizable>, [">= 0.0.16"])
     s.add_dependency(%q<cohort_scope>, [">= 0.0.7"])
