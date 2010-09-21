@@ -14,11 +14,13 @@ module BrighterPlanet
 
       require 'leap'
       require 'cohort_scope'
-      base.extend ::Leap::Subject
+      base.extend Leap::Subject
       base.send :include, const_get('CarbonModel')
 
       require 'characterizable'
+      base.send :include, Characterizable
       base.send :include, const_get('Characterization')
+      base.add_implicit_characteristics
 
       require 'data_miner'
       base.send :include, const_get('Data')
@@ -33,6 +35,7 @@ module BrighterPlanet
         base.send :include, const_get('Relationships')
       end
 
+      base.extend SummaryJudgement
       base.send :include, const_get('Summarization')
     end
     

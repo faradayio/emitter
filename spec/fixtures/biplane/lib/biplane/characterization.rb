@@ -4,7 +4,6 @@ module BrighterPlanet
   module Biplane
     module Characterization
       def self.included(base)
-        base.send :include, Characterizable
         base.characterize do
           has :distance
           has :payload
