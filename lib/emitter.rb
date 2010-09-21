@@ -14,6 +14,7 @@ module BrighterPlanet
 
       require 'leap'
       require 'cohort_scope'
+      base.extend ::Leap::Subject
       base.send :include, const_get('CarbonModel')
 
       require 'characterizable'
