@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    emitter (0.1.3)
+    emitter (0.1.4)
       activesupport (>= 3.0.0)
       characterizable (>= 0.0.16)
       cohort_scope (>= 0.0.7)
@@ -195,7 +195,7 @@ DEPENDENCIES
   rdoc
   rocco (~> 0.4)
   rspec (>= 2.0.0.beta.17)
-  sniff (~> 0.1.17)
+  sniff (~> 0.1.12)
   summary_judgement (>= 1.3.8)
   timeframe (>= 0.0.8)
   weighted_average (>= 0.0.4)
