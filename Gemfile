@@ -7,6 +7,10 @@ gem 'leap', :path => ENV['LOCAL_LEAP'] if ENV['LOCAL_LEAP']
 gem 'data_miner', :path => ENV['LOCAL_DATA_MINER'] if ENV['LOCAL_DATA_MINER']
 gem 'earth', :path => ENV['LOCAL_EARTH'] if ENV['LOCAL_EARTH']
 
+if RUBY_VERSION >= '1.9'
+  gem 'slither-ruby19'
+end
+
 source :rubygems
 
 gemspec :path => '.'
