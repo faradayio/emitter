@@ -47,7 +47,7 @@ require_or_fail('jeweler', 'Jeweler (or a dependency) not available. Install it 
     gem.add_dependency 'earth', '~>0.2.6' unless ENV['LOCAL_EARTH']
     gem.add_dependency 'falls_back_on', '=0.0.3' unless ENV['LOCAL_FALLS_BACK_ON']
     gem.add_dependency 'fast_timestamp', '>=0.0.4'
-    gem.add_dependency 'leap', '>=0.4.3' unless ENV['LOCAL_LEAP']
+    gem.add_dependency 'leap', '~> 0.4.4' unless ENV['LOCAL_LEAP']
     gem.add_dependency 'summary_judgement', '>=1.3.8'
     gem.add_dependency 'timeframe', '>=0.0.8'
     gem.add_dependency 'weighted_average', '>=0.0.4'
