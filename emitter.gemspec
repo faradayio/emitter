@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{emitter}
-  s.version = "0.1.9"
+  s.version = "0.1.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andy Rossmeissl", "Seamus Abshere", "Ian Hough", "Matt Kling", "Derek Kastner"]
-  s.date = %q{2010-11-03}
+  s.date = %q{2010-11-08}
   s.description = %q{A software model in Ruby for the greenhouse gas emissions}
   s.email = %q{derek@brighterplanet.com}
   s.extra_rdoc_files = [
@@ -26,7 +26,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{The mother of all carbon models}
   s.test_files = [
-    "spec/emitter_spec.rb",
+    "spec/emitter/meta_spec.rb",
+     "spec/emitter_spec.rb",
      "spec/fixtures/dirigible/lib/dirigible/fallback.rb",
      "spec/fixtures/dirigible/lib/dirigible/carbon_model.rb",
      "spec/fixtures/dirigible/lib/dirigible/data.rb",
