@@ -1,6 +1,7 @@
 module BrighterPlanet
   module Emitter
-    BETA_EMITTERS = %{}
+    LIST = %w{automobile automobile_trip bus_trip computation diet flight fuel_purchase lodging meeting motorcycle pet purchase rail_trip residence}
+    BETA_LIST = %w{}
 
     REQUIRED_COMPONENTS = %w{carbon_model characterization data summarization}
     OPTIONAL_COMPONENTS = %w{fallback relationships}
@@ -52,6 +53,10 @@ module BrighterPlanet
         base.send :include, "::BrighterPlanet::#{common_camel}::Relationships".constantize
       end
     end
+
+    def self.classes
+      LIST.map(&:camelize).map(&:constantize)
+    end
     
     module ClassMethods
       def add_implicit_characteristics
@@ -63,7 +68,7 @@ module BrighterPlanet
 
     module Meta
       def beta?
-        BETA_EMITTERS.include?(self.to_s.underscore)
+        BETA_LIST.include?(self.to_s.underscore)
       end
     end
   end
