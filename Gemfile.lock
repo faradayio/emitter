@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    emitter (0.1.8)
+    emitter (0.1.9)
       activesupport (>= 3.0.0)
       characterizable (~> 0.1.0)
       cohort_scope (~> 0.1.0)
