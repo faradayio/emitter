@@ -1,8 +1,11 @@
 module BrighterPlanet
   module Emitter
+    BETA_EMITTERS = %{}
+
     REQUIRED_COMPONENTS = %w{carbon_model characterization data summarization}
     OPTIONAL_COMPONENTS = %w{fallback relationships}
     def included(base)
+      base.extend Meta
       base.extend ClassMethods
       
       common_name = self.to_s.split('::').last.underscore
@@ -55,6 +58,12 @@ module BrighterPlanet
         decisions[:emission].committees.map(&:name).reject { |c| characteristics.keys.unshift(:emission).include? c }.each do |c|
           characterize { has c }
         end
+      end
+    end
+
+    module Meta
+      def beta?
+        BETA_EMITTERS.include?(self.to_s.underscore)
       end
     end
   end
