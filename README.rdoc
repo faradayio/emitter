@@ -14,4 +14,4 @@ Base gem for Brighter Planet's carbon model gems. See http://carbon.brighterplan
 
 == Copyright
 
-Copyright (c) 2010 Andy Rossmeissl. See LICENSE for details.
+Copyright (c) 2010 Brighter Planet, Inc. See LICENSE for details.
