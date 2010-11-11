@@ -1,4 +1,5 @@
 # Bring in Rocco tasks
+require 'rake/clean'
 require 'rocco/tasks'
 Rocco::make 'docs/', 'lib/flight/carbon_model.rb'
 

@@ -51,7 +51,7 @@ require_or_fail('jeweler', 'Jeweler (or a dependency) not available. Install it 
     gem.add_dependency 'summary_judgement', '>=1.3.8'
     gem.add_dependency 'timeframe', '>=0.0.8'
     gem.add_dependency 'weighted_average', '>=0.0.4'
-    gem.add_development_dependency 'rocco', '~>0.4'
+    gem.add_dependency 'rocco', '~>0.4'
   end
   Jeweler::GemcutterTasks.new
 end
