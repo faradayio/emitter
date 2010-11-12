@@ -1,32 +1,64 @@
-# Bring in Rocco tasks
+require 'emitter'
+require 'rake'
 require 'rake/clean'
+require 'rake/tasklib'
 require 'rocco/tasks'
-Rocco::make 'docs/', 'lib/flight/carbon_model.rb'
 
-desc 'Build rocco docs'
-task :docs => :rocco
-directory 'docs/'
+module Emitter
+  class Tasks < ::Rake::TaskLib
+    def self.define
+      new.define
+    end
 
-# GITHUB PAGES ===============================================================
+    def git(cmd, dir = nil, &blk)
+      full_cmd = ''
+      full_cmd << "cd #{dir} && " if dir
+      full_cmd << "unset GIT_DIR && unset GIT_INDEX_FILE && unset GIT_WORK_TREE && git #{cmd}"
+      sh full_cmd, &blk
+    end
 
-desc 'Update gh-pages branch'
-task :pages => ['docs/.git', :docs] do
-  rev = `git rev-parse --short HEAD`.strip
-  Dir.chdir 'docs' do
-    sh "git add *.html"
-    sh "git commit -m 'rebuild pages from #{rev}'" do |ok,res|
-      if ok
-        verbose { puts "gh-pages updated" }
-        sh "git push -q o HEAD:gh-pages"
+    def define
+      Rocco::make 'docs/', 'lib/flight/carbon_model.rb'
+
+      desc 'Build rocco docs'
+      task :docs => :rocco
+      directory 'docs/'
+
+      # GITHUB PAGES ===============================================================
+
+      desc 'Update gh-pages branch'
+      task :pages => ['docs/.git', :docs] do
+        rev = `git rev-parse --short HEAD`.strip
+        git 'add *.html', 'docs'
+        git "commit -m 'rebuild pages from #{rev}'", 'docs' do |ok,res|
+          if ok
+            verbose { puts "gh-pages updated" }
+            git 'push -q o HEAD:gh-pages', 'docs' unless ENV['NO_PUSH']
+          end
+        end
       end
+
+      # Update the pages/ directory clone
+      file 'docs/.git' => ['.git/refs/heads/gh-pages', '.git/refs/heads/gh-pages', 'docs/.git/refs/remotes/o'] do |f|
+        git 'fetch -q o', 'docs'
+        git 'reset -q --hard o/gh-pages', 'docs'
+        sh 'touch docs'
+      end
+
+      file '.git/refs/heads/gh-pages' do |f|
+        unless File.exist? f.name
+          git 'branch gh-pages --track origin/gh-pages', 'docs' 
+        end
+      end
+
+      file 'docs/.git/refs/remotes/o' do |f|
+        unless File.exist? f.name
+          git 'init -q docs'
+          git 'remote add o ../.git', 'docs'
+        end
+      end
+
+      CLOBBER.include 'docs/.git'
     end
   end
 end
-
-# Update the pages/ directory clone
-file 'docs/.git' => ['docs/', '.git/refs/heads/gh-pages'] do |f|
-  sh "cd docs && git init -q && git remote add o ../.git" if !File.exist?(f.name)
-  sh "cd docs && git fetch -q o && git reset -q --hard o/gh-pages && touch ."
-end
-CLOBBER.include 'docs/.git'
-
