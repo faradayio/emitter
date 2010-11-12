@@ -39,6 +39,7 @@ require_or_fail('jeweler', 'Jeweler (or a dependency) not available. Install it 
     gem.add_development_dependency 'rake'
     gem.add_development_dependency 'rdoc'
     gem.add_development_dependency 'rspec', '>=2.0.0.beta.17'
+    gem.add_development_dependency 'sandbox'
     gem.add_development_dependency 'sniff', '~> 0.1.12'
     gem.add_dependency 'activesupport', '>=3.0.0'
     gem.add_dependency 'characterizable', '~> 0.1.0'
