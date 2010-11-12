@@ -27,7 +27,7 @@ module Emitter
       # GITHUB PAGES ===============================================================
 
       desc 'Update gh-pages branch'
-      task :pages => ['docs/.git', :docs] do
+      task :pages => ['pages:sync', :docs] do
         rev = `git rev-parse --short HEAD`.strip
         git 'add *.html', 'docs'
         git "commit -m 'rebuild pages from #{rev}'", 'docs' do |ok,res|
@@ -39,22 +39,24 @@ module Emitter
       end
 
       # Update the pages/ directory clone
-      file 'docs/.git' => ['.git/refs/heads/gh-pages', '.git/refs/heads/gh-pages', 'docs/.git/refs/remotes/o'] do |f|
-        git 'fetch -q o', 'docs'
-        git 'reset -q --hard o/gh-pages', 'docs'
-        sh 'touch docs'
-      end
-
-      file '.git/refs/heads/gh-pages' do |f|
-        unless File.exist? f.name
-          git 'branch gh-pages --track origin/gh-pages', 'docs' 
+      namespace :pages do
+        task 'sync' => ['.git/refs/heads/gh-pages', '.git/refs/heads/gh-pages', 'docs/.git/refs/remotes/o'] do |f|
+          git 'fetch -q o', 'docs'
+          git 'reset -q --hard o/gh-pages', 'docs'
+          sh 'touch docs'
         end
-      end
 
-      file 'docs/.git/refs/remotes/o' do |f|
-        unless File.exist? f.name
-          git 'init -q docs'
-          git 'remote add o ../.git', 'docs'
+        file '.git/refs/heads/gh-pages' do |f|
+          unless File.exist? f.name
+            git 'branch gh-pages --track origin/gh-pages', 'docs' 
+          end
+        end
+
+        file 'docs/.git/refs/remotes/o' do |f|
+          unless File.exist? f.name
+            git 'init -q docs'
+            git 'remote add o ../.git', 'docs'
+          end
         end
       end
 
