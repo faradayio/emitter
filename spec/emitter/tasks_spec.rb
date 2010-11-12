@@ -18,7 +18,7 @@ Emitter::Tasks.define
       it 'should generate docs' do
         Sandbox.play do |path|
           flight_path = File.join(path, 'flight')
-          `cd #{path} && git clone git://github.com/brighterplanet/flight.git`
+          `git clone git://github.com/brighterplanet/flight.git #{flight_path}`
           File.open(File.join(flight_path, 'Rakefile'), 'w') do |f|
             f.puts rakefile
           end
@@ -34,7 +34,7 @@ Emitter::Tasks.define
       it 'should commit any changed doc files' do
         Sandbox.play do |path|
           flight_path = File.join(path, 'flight')
-          `cd #{path} && git clone git://github.com/brighterplanet/flight.git`
+          `git clone git://github.com/brighterplanet/flight.git #{flight_path}`
           File.open(File.join(flight_path, 'Rakefile'), 'w') do |f|
             f.puts rakefile
           end
