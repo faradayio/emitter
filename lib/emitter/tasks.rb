@@ -17,8 +17,8 @@ module Emitter
       sh full_cmd, &blk
     end
 
-    def define
-      Rocco::make 'docs/', 'lib/flight/carbon_model.rb'
+    def define(name)
+      Rocco::make 'docs/', "lib/#{name}/carbon_model.rb"
 
       desc 'Build rocco docs'
       task :docs => :rocco
