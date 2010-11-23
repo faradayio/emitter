@@ -51,8 +51,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<activerecord>, [">= 3.0.0"])
       s.add_development_dependency(%q<bundler>, [">= 1.0.0.beta.2"])
-      s.add_development_dependency(%q<rspec>, [">= 2.0.0.beta.17"])
-      s.add_development_dependency(%q<sniff>, ["~> 0.4.0"])
+      s.add_development_dependency(%q<sniff>, ["~> 0.4.2"])
       s.add_runtime_dependency(%q<activesupport>, [">= 3.0.0"])
       s.add_runtime_dependency(%q<characterizable>, ["~> 0.1.2"])
       s.add_runtime_dependency(%q<cohort_scope>, ["~> 0.1.0"])
@@ -67,8 +66,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<activerecord>, [">= 3.0.0"])
       s.add_dependency(%q<bundler>, [">= 1.0.0.beta.2"])
-      s.add_dependency(%q<rspec>, [">= 2.0.0.beta.17"])
-      s.add_dependency(%q<sniff>, ["~> 0.4.0"])
+      s.add_dependency(%q<sniff>, ["~> 0.4.2"])
       s.add_dependency(%q<activesupport>, [">= 3.0.0"])
       s.add_dependency(%q<characterizable>, ["~> 0.1.2"])
       s.add_dependency(%q<cohort_scope>, ["~> 0.1.0"])
@@ -84,8 +82,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<activerecord>, [">= 3.0.0"])
     s.add_dependency(%q<bundler>, [">= 1.0.0.beta.2"])
-    s.add_dependency(%q<rspec>, [">= 2.0.0.beta.17"])
-    s.add_dependency(%q<sniff>, ["~> 0.4.0"])
+    s.add_dependency(%q<sniff>, ["~> 0.4.2"])
     s.add_dependency(%q<activesupport>, [">= 3.0.0"])
     s.add_dependency(%q<characterizable>, ["~> 0.1.2"])
     s.add_dependency(%q<cohort_scope>, ["~> 0.1.0"])

@@ -35,8 +35,7 @@ require_or_fail('jeweler', 'Jeweler (or a dependency) not available. Install it 
       Dir.glob(File.join('lib', '**','*.rb'))
     gem.add_development_dependency 'activerecord', '>=3.0.0'
     gem.add_development_dependency 'bundler', '>=1.0.0.beta.2'
-    gem.add_development_dependency 'rspec', '>=2.0.0.beta.17'
-    gem.add_development_dependency 'sniff', '~> 0.4.0'
+    gem.add_development_dependency 'sniff', '~> 0.4.2'
     gem.add_dependency 'activesupport', '>=3.0.0'
     gem.add_dependency 'characterizable', '~> 0.1.2'
     gem.add_dependency 'cohort_scope', '~>0.1.0'
@@ -54,15 +53,8 @@ end
 
 require_or_fail('sniff', 'Sniff gem not found, sniff tasks unavailable') do
   require 'sniff/rake_tasks'
-  Sniff::RakeTasks.new
-end
-
-require_or_fail('rspec', 'RSpec gem not found, RSpec tasks unavailable') do
-  require 'rspec/core/rake_task'
-
-  desc "Run all examples"
-  RSpec::Core::RakeTask.new('examples')
-
-  task :default => :examples
-  task :test => :examples
+  Sniff::RakeTasks.define_tasks do |s|
+    s.cucumber = false
+    s.rspec = true
+  end
 end
