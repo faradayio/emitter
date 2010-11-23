@@ -35,12 +35,8 @@ require_or_fail('jeweler', 'Jeweler (or a dependency) not available. Install it 
       Dir.glob(File.join('lib', '**','*.rb'))
     gem.add_development_dependency 'activerecord', '>=3.0.0'
     gem.add_development_dependency 'bundler', '>=1.0.0.beta.2'
-    gem.add_development_dependency 'jeweler', '~>1.4.0'
-    gem.add_development_dependency 'rake'
-    gem.add_development_dependency 'rdoc'
     gem.add_development_dependency 'rspec', '>=2.0.0.beta.17'
-    gem.add_development_dependency 'sandbox'
-    gem.add_development_dependency 'sniff', '~> 0.3.0'
+    gem.add_development_dependency 'sniff', '~> 0.4.0'
     gem.add_dependency 'activesupport', '>=3.0.0'
     gem.add_dependency 'characterizable', '~> 0.1.2'
     gem.add_dependency 'cohort_scope', '~>0.1.0'
@@ -52,14 +48,13 @@ require_or_fail('jeweler', 'Jeweler (or a dependency) not available. Install it 
     gem.add_dependency 'summary_judgement', '>=1.3.8'
     gem.add_dependency 'timeframe', '>=0.0.8'
     gem.add_dependency 'weighted_average', '>=0.0.4'
-    gem.add_dependency 'rocco', '~>0.4'
   end
   Jeweler::GemcutterTasks.new
 end
 
 require_or_fail('sniff', 'Sniff gem not found, sniff tasks unavailable') do
-  require 'sniff/rake_task'
-  Sniff::RakeTask.new(:console)
+  require 'sniff/rake_tasks'
+  Sniff::RakeTasks.new
 end
 
 require_or_fail('rspec', 'RSpec gem not found, RSpec tasks unavailable') do
@@ -70,14 +65,4 @@ require_or_fail('rspec', 'RSpec gem not found, RSpec tasks unavailable') do
 
   task :default => :examples
   task :test => :examples
-end
-
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "lodging #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
 end
