@@ -1,18 +1,17 @@
 PATH
   remote: .
   specs:
-    emitter (0.2.1)
-      activesupport (>= 3.0.0)
-      characterizable (~> 0.1.2)
-      cohort_scope (~> 0.1.0)
-      data_miner (~> 0.5.5)
-      earth (~> 0.3.1)
-      falls_back_on (= 0.0.3)
-      fast_timestamp (>= 0.0.4)
+    emitter (0.3.0)
+      activesupport (~> 3)
+      characterizable (~> 0.1)
+      cohort_scope (~> 0.1)
+      data_miner (~> 0.5)
+      earth (~> 0.3)
+      falls_back_on (~> 0.0.3)
       leap (~> 0.4.4)
-      summary_judgement (>= 1.3.8)
-      timeframe (>= 0.0.8)
-      weighted_average (>= 0.0.4)
+      summary_judgement (~> 1.3)
+      timeframe (~> 0.0.8)
+      weighted_average (~> 0.0.4)
 
 GEM
   remote: http://rubygems.org/
@@ -33,7 +32,7 @@ GEM
     activesupport (3.0.3)
     amatch (0.2.5)
     andand (1.3.1)
-    arel (2.0.4)
+    arel (2.0.6)
     blockenspiel (0.3.2)
     builder (2.1.2)
     characterizable (0.1.2)
@@ -90,7 +89,7 @@ GEM
       rake (>= 0.8.7)
       rubyforge (>= 2.0.4)
     hpricot (0.8.3)
-    i18n (0.4.2)
+    i18n (0.5.0)
     jeweler (1.4.0)
       gemcutter (>= 0.1.0)
       git (>= 1.2.5)
@@ -132,6 +131,16 @@ GEM
       libxml-ruby (>= 1.1.3)
       rubyzip (>= 0.9.1)
       spreadsheet (>= 0.6.4)
+    rspec (2.0.1)
+      rspec-core (~> 2.0.1)
+      rspec-expectations (~> 2.0.1)
+      rspec-mocks (~> 2.0.1)
+    rspec-core (2.0.1)
+    rspec-expectations (2.0.1)
+      diff-lcs (>= 1.1.2)
+    rspec-mocks (2.0.1)
+      rspec-core (~> 2.0.1)
+      rspec-expectations (~> 2.0.1)
     ruby-ole (1.2.11.1)
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
@@ -141,7 +150,7 @@ GEM
       rack (>= 1.0)
     slither (0.99.4)
     slither-ruby19 (0.99.3)
-    sniff (0.4.2)
+    sniff (0.4.3)
       aaronh-chronic (~> 0.3.9)
       activerecord (~> 3.0.0)
       activesupport (~> 3.0.0)
@@ -154,6 +163,7 @@ GEM
       rcov
       rdoc
       rocco
+      rspec (~> 2.0.0)
       sqlite3-ruby (~> 1.3.0)
       timeframe (~> 0.0.8)
     spreadsheet (0.6.4.1)
@@ -184,19 +194,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (>= 3.0.0)
-  activesupport (>= 3.0.0)
-  bundler (>= 1.0.0.beta.2)
-  characterizable (~> 0.1.2)
-  cohort_scope (~> 0.1.0)
-  data_miner (~> 0.5.5)
-  earth (~> 0.3.1)
+  activerecord (~> 3)
+  activesupport (~> 3)
+  bundler (~> 1.0.0)
+  characterizable (~> 0.1)
+  cohort_scope (~> 0.1)
+  data_miner (~> 0.5)
+  earth (~> 0.3)
   emitter!
-  falls_back_on (= 0.0.3)
-  fast_timestamp (>= 0.0.4)
+  falls_back_on (~> 0.0.3)
   leap (~> 0.4.4)
   slither-ruby19
-  sniff (~> 0.4.2)
-  summary_judgement (>= 1.3.8)
-  timeframe (>= 0.0.8)
-  weighted_average (>= 0.0.4)
+  sniff
+  summary_judgement (~> 1.3)
+  timeframe (~> 0.0.8)
+  weighted_average (~> 0.0.4)
