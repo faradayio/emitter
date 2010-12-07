@@ -1,9 +1,29 @@
 module BrighterPlanet
   module Emitter
-    LIST = %w{automobile automobile_trip bus_trip computation diet flight fuel_purchase lodging meeting motorcycle pet purchase rail_trip residence}
+    LIST = %w{
+      automobile
+      automobile_trip
+      bus_trip
+      computation
+      diet
+      flight
+      fuel_purchase
+      lodging
+      meeting
+      motorcycle
+      pet
+      purchase
+      rail_trip
+      residence
+    }
     BETA_LIST = %w{}
-
-    REQUIRED_COMPONENTS = %w{carbon_model characterization data summarization fallback relationships}
+    REQUIRED_COMPONENTS = %w{
+      carbon_model
+      characterization
+      data summarization
+      fallback
+      relationships
+    }
     def included(base)
       base.extend Meta
       base.extend ClassMethods
