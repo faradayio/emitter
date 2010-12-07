@@ -3,8 +3,7 @@ module BrighterPlanet
     LIST = %w{automobile automobile_trip bus_trip computation diet flight fuel_purchase lodging meeting motorcycle pet purchase rail_trip residence}
     BETA_LIST = %w{}
 
-    REQUIRED_COMPONENTS = %w{carbon_model characterization data summarization}
-    OPTIONAL_COMPONENTS = %w{fallback relationships}
+    REQUIRED_COMPONENTS = %w{carbon_model characterization data summarization fallback relationships}
     def included(base)
       base.extend Meta
       base.extend ClassMethods
@@ -16,16 +15,6 @@ module BrighterPlanet
         require "#{common_name}/#{component}"
       end
       
-      extra = []
-      OPTIONAL_COMPONENTS.each do |component|
-        begin
-          require "#{common_name}/#{component}"
-          extra << component
-        rescue LoadError
-          # Oh well, we shouldn't need it.
-        end
-      end
-
       require 'leap'
       require 'cohort_scope'
       base.extend ::Leap::Subject
@@ -43,15 +32,11 @@ module BrighterPlanet
       base.extend ::SummaryJudgement
       base.send :include, "::BrighterPlanet::#{common_camel}::Summarization".constantize
 
-      if extra.include? 'fallback'
-        require 'falls_back_on'
-        require 'falls_back_on/active_record_ext'
-        base.send :include, "::BrighterPlanet::#{common_camel}::Fallback".constantize
-      end
+      require 'falls_back_on'
+      require 'falls_back_on/active_record_ext'
+      base.send :include, "::BrighterPlanet::#{common_camel}::Fallback".constantize
 
-      if extra.include? 'relationships'
-        base.send :include, "::BrighterPlanet::#{common_camel}::Relationships".constantize
-      end
+      base.send :include, "::BrighterPlanet::#{common_camel}::Relationships".constantize
     end
 
     def self.classes
