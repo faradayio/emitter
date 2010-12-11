@@ -15,6 +15,7 @@ module BrighterPlanet
       purchase
       rail_trip
       residence
+      shipment
     }
     BETA_LIST = %w{}
     REQUIRED_COMPONENTS = %w{
