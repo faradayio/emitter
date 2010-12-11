@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{emitter}
-  s.version = "0.3.2"
+  s.version = "0.3.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andy Rossmeissl", "Seamus Abshere", "Ian Hough", "Matt Kling", "Derek Kastner"]
-  s.date = %q{2010-12-07}
+  s.date = %q{2010-12-10}
   s.description = %q{A software model in Ruby for the greenhouse gas emissions}
   s.email = %q{derek@brighterplanet.com}
   s.extra_rdoc_files = [
@@ -29,18 +29,18 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/emitter/meta_spec.rb",
      "spec/emitter_spec.rb",
-     "spec/fixtures/biplane/lib/biplane/carbon_model.rb",
-     "spec/fixtures/biplane/lib/biplane/characterization.rb",
-     "spec/fixtures/biplane/lib/biplane/data.rb",
-     "spec/fixtures/biplane/lib/biplane/summarization.rb",
-     "spec/fixtures/biplane/lib/biplane.rb",
-     "spec/fixtures/dirigible/lib/dirigible/carbon_model.rb",
-     "spec/fixtures/dirigible/lib/dirigible/characterization.rb",
-     "spec/fixtures/dirigible/lib/dirigible/data.rb",
      "spec/fixtures/dirigible/lib/dirigible/fallback.rb",
+     "spec/fixtures/dirigible/lib/dirigible/carbon_model.rb",
+     "spec/fixtures/dirigible/lib/dirigible/data.rb",
      "spec/fixtures/dirigible/lib/dirigible/relationships.rb",
+     "spec/fixtures/dirigible/lib/dirigible/characterization.rb",
      "spec/fixtures/dirigible/lib/dirigible/summarization.rb",
      "spec/fixtures/dirigible/lib/dirigible.rb",
+     "spec/fixtures/biplane/lib/biplane.rb",
+     "spec/fixtures/biplane/lib/biplane/carbon_model.rb",
+     "spec/fixtures/biplane/lib/biplane/data.rb",
+     "spec/fixtures/biplane/lib/biplane/characterization.rb",
+     "spec/fixtures/biplane/lib/biplane/summarization.rb",
      "spec/spec_helper.rb"
   ]
 
