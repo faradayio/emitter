@@ -6,6 +6,7 @@ module BrighterPlanet
       bus_trip
       computation
       diet
+      electricity_use
       flight
       fuel_purchase
       lodging
