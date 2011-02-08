@@ -17,8 +17,6 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_development_dependency 'activerecord', '~>3'
-  s.add_development_dependency 'sniff'
   s.add_dependency 'activesupport', '>=2.3.4'
   s.add_dependency 'characterizable'
   s.add_dependency 'cohort_scope'
@@ -29,4 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'summary_judgement'
   s.add_dependency 'timeframe'
   s.add_dependency 'weighted_average'
+  s.add_development_dependency 'activerecord', '~>3'
+  s.add_development_dependency 'bueller'
+  s.add_development_dependency 'sniff'
 end
