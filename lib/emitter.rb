@@ -37,6 +37,8 @@ module BrighterPlanet
         require "#{common_name}/#{component}"
       end
       
+      base.instance_variable_set :@emission_scope, @emission_scope if @emission_scope
+      
       require 'leap'
       require 'cohort_scope'
       base.extend ::Leap::Subject
@@ -65,6 +67,10 @@ module BrighterPlanet
       LIST.map(&:camelize).map(&:constantize)
     end
     
+    def scope(statement)
+      @emission_scope = statement
+    end
+    
     module ClassMethods
       def add_implicit_characteristics
         decisions[:emission].committees.map(&:name).reject { |c| characteristics.keys.unshift(:emission).include? c }.each do |c|
@@ -72,15 +78,7 @@ module BrighterPlanet
         end
       end
       
-      def emission_scope(statement = nil)
-        if statement == false
-          @emission_scope = nil
-        elsif statement
-          @emission_scope = statement
-        else
-          @emission_scope
-        end
-      end
+      def emission_scope; @emission_scope end
     end
 
     module Meta
