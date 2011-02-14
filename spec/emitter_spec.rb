@@ -31,6 +31,10 @@ describe BrighterPlanet::Emitter do
         Aircraft.send :include, BrighterPlanet::Biplane
       end.should_not raise_error
     end
+    
+    it 'should state its own scope' do
+      Airship.scope.should.equal 'Anthropogenic emissions resulting from the inflation, launching, and acceleration of dirigibles'
+    end
   end
 end
 
