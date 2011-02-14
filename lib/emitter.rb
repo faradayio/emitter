@@ -30,8 +30,6 @@ module BrighterPlanet
       base.extend Meta
       base.extend ClassMethods
       
-#      base.instance_variable_set :@emission_scope, nil
-      
       common_name = self.to_s.split('::').last.underscore
       common_camel = common_name.camelcase
 
@@ -74,15 +72,15 @@ module BrighterPlanet
         end
       end
       
-#      def emission_scope(statement = nil)
-#        if statement == false
-#          @emission_scope = nil
-#        elsif statement
-#          @emission_scope = statement
-#        else
-#         @emission_scope
-#        end
-#      end
+      def emission_scope(statement = nil)
+        if statement == false
+          @emission_scope = nil
+        elsif statement
+          @emission_scope = statement
+        else
+          @emission_scope
+        end
+      end
     end
 
     module Meta

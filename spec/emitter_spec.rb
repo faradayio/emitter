@@ -33,7 +33,7 @@ describe BrighterPlanet::Emitter do
     end
     
     it 'should state its own scope' do
-      Airship.scope.should.equal 'Anthropogenic emissions resulting from the inflation, launching, and acceleration of dirigibles'
+      Airship.emission_scope.should == 'Anthropogenic emissions resulting from the inflation, launching, and acceleration of dirigibles'
     end
   end
 end
