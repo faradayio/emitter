@@ -4,7 +4,7 @@ require "emitter/version"
 
 Gem::Specification.new do |s|
   s.name        = 'emitter'
-  s.version = "0.3.4"
+  s.version = Emitter::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Andy Rossmeissl", "Seamus Abshere", "Ian Hough", "Matt Kling", 'Derek Kastner']
   s.email       = %q{derek@brighterplanet.com}
