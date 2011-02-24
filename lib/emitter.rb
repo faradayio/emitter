@@ -57,7 +57,6 @@ module BrighterPlanet
       base.send :include, "::BrighterPlanet::#{common_camel}::Summarization".constantize
 
       require 'falls_back_on'
-      require 'falls_back_on/active_record_ext'
       base.send :include, "::BrighterPlanet::#{common_camel}::Fallback".constantize
 
       base.send :include, "::BrighterPlanet::#{common_camel}::Relationships".constantize
