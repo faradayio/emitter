@@ -4,7 +4,6 @@ module BrighterPlanet
       carbon_model
       characterization
       data summarization
-      fallback
       relationships
     }
     def included(base)
@@ -37,7 +36,12 @@ module BrighterPlanet
       base.send :include, "::BrighterPlanet::#{common_camel}::Summarization".constantize
 
       require 'falls_back_on'
-      base.send :include, "::BrighterPlanet::#{common_camel}::Fallback".constantize
+      begin
+        require "#{common_name}/fallback"
+        base.send :include, "::BrighterPlanet::#{common_camel}::Fallback".constantize
+      rescue ::LoadError
+        # not required
+      end
 
       base.send :include, "::BrighterPlanet::#{common_camel}::Relationships".constantize
     end
