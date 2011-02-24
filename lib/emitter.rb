@@ -1,24 +1,5 @@
 module BrighterPlanet
   module Emitter
-    LIST = %w{
-      automobile
-      automobile_trip
-      bus_trip
-      computation
-      diet
-      electricity_use
-      flight
-      fuel_purchase
-      lodging
-      meeting
-      motorcycle
-      pet
-      purchase
-      rail_trip
-      residence
-      shipment
-    }
-    BETA_LIST = %w{}
     REQUIRED_COMPONENTS = %w{
       carbon_model
       characterization
@@ -27,7 +8,6 @@ module BrighterPlanet
       relationships
     }
     def included(base)
-      base.extend Meta
       base.extend ClassMethods
       
       common_name = self.to_s.split('::').last.underscore
@@ -61,11 +41,7 @@ module BrighterPlanet
 
       base.send :include, "::BrighterPlanet::#{common_camel}::Relationships".constantize
     end
-    
-    def self.classes
-      LIST.map(&:camelize).map(&:constantize)
-    end
-    
+        
     def scope(statement)
       @emission_scope = statement
     end
@@ -78,12 +54,6 @@ module BrighterPlanet
       end
       
       def emission_scope; @emission_scope end
-    end
-
-    module Meta
-      def beta?
-        BETA_LIST.include?(self.to_s.underscore)
-      end
     end
   end
 end
