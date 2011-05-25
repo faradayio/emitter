@@ -26,6 +26,7 @@ module BrighterPlanet
       require 'charisma'
       base.send :include, ::Charisma
       base.send :include, "::BrighterPlanet::#{common_camel}::Characterization".constantize
+      base.add_implicit_characteristics
 
       require 'data_miner'
       base.send :include, "::BrighterPlanet::#{common_camel}::Data".constantize
@@ -50,6 +51,12 @@ module BrighterPlanet
     end
     
     module ClassMethods
+      def add_implicit_characteristics
+        decisions[:emission].committees.map(&:name).reject { |c| characteristics.keys.unshift(:emission).include? c }.each do |c|
+          characterize { has c }
+        end
+      end
+      
       def emission_scope; @emission_scope end
     end
   end
