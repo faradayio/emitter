@@ -61,7 +61,7 @@ module BrighterPlanet
     
     module ClassMethods
       def _add_implicit_characteristics
-        preexisting = characteristics.keys
+        preexisting = characterization.keys
         decisions[:emission].committees.reject do |committee|
           preexisting.include? committee.name
         end.each do |committee|
