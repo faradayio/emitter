@@ -1,3 +1,10 @@
+require 'leap'
+require 'cohort_scope'
+require 'charisma'
+require 'data_miner'
+require 'summary_judgement'
+require 'falls_back_on'
+
 module BrighterPlanet
   module Emitter
     REQUIRED_COMPONENTS = %w{
@@ -6,6 +13,7 @@ module BrighterPlanet
       data summarization
       relationships
     }
+    
     def included(base)
       base.extend ClassMethods
       
@@ -18,24 +26,19 @@ module BrighterPlanet
       
       base.instance_variable_set :@emission_scope, @emission_scope if @emission_scope
       
-      require 'leap'
-      require 'cohort_scope'
       base.extend ::Leap::Subject
       base.send :include, "::BrighterPlanet::#{common_camel}::CarbonModel".constantize
 
-      require 'charisma'
       base.send :include, ::Charisma
       base.send :include, "::BrighterPlanet::#{common_camel}::Characterization".constantize
-      base.add_implicit_characteristics
+      base._add_emission_characteristic
+      base._add_implicit_characteristics
 
-      require 'data_miner'
       base.send :include, "::BrighterPlanet::#{common_camel}::Data".constantize
 
-      require 'summary_judgement'
       base.extend ::SummaryJudgement
       base.send :include, "::BrighterPlanet::#{common_camel}::Summarization".constantize
 
-      require 'falls_back_on'
       begin
         require "#{common_name}/fallback"
         base.send :include, "::BrighterPlanet::#{common_camel}::Fallback".constantize
@@ -50,11 +53,26 @@ module BrighterPlanet
       @emission_scope = statement
     end
     
+    class CarbonEmission < ::Charisma::Measurement
+      units :kilograms => 'kg CO2e'
+    end
+    
     module ClassMethods
-      def add_implicit_characteristics
-        decisions[:emission].committees.map(&:name).reject { |c| characteristics.keys.unshift(:emission).include? c }.each do |c|
-          characterize { has c }
+      def _add_implicit_characteristics
+        preexisting = characteristics.keys
+        decisions[:emission].committees.reject do |committee|
+          preexisting.include? committee.name
+        end.each do |committee|
+          characterize do
+            has committee.name, :options => committee.options.slice(:measures, :display_with)
+          end
         end
+      end
+      
+      def _add_emission_characteristic
+        characterize do
+          has :emission, :options => { :measures => CarbonEmission }
+        end        
       end
       
       def emission_scope; @emission_scope end
