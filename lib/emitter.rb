@@ -31,7 +31,9 @@ module BrighterPlanet
 
       base.send :include, ::Charisma
       base.send :include, "::BrighterPlanet::#{common_camel}::Characterization".constantize
-      base._add_emission_characteristic
+      base.characterize do
+        has :emission, :options => { :measures => CarbonEmission }
+      end        
       base._add_implicit_characteristics
 
       base.send :include, "::BrighterPlanet::#{common_camel}::Data".constantize
@@ -68,13 +70,7 @@ module BrighterPlanet
           end
         end
       end
-      
-      def _add_emission_characteristic
-        characterize do
-          has :emission, :options => { :measures => CarbonEmission }
-        end        
-      end
-      
+            
       def emission_scope; @emission_scope end
     end
   end
