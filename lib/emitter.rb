@@ -31,9 +31,6 @@ module BrighterPlanet
 
       base.send :include, ::Charisma
       base.send :include, "::BrighterPlanet::#{common_camel}::Characterization".constantize
-      base.characterize do
-        has :emission, :options => { :measures => CarbonEmission }
-      end        
       base._add_implicit_characteristics
 
       base.send :include, "::BrighterPlanet::#{common_camel}::Data".constantize
@@ -54,16 +51,12 @@ module BrighterPlanet
     def scope(statement)
       @emission_scope = statement
     end
-    
-    class CarbonEmission < ::Charisma::Measurement
-      units :kilograms => 'kg CO2e'
-    end
-    
+        
     module ClassMethods
       def _add_implicit_characteristics
         preexisting = characterization.keys
         decisions[:emission].committees.reject do |committee|
-          preexisting.include? committee.name
+          committee.name == :emission or preexisting.include?(committee.name)
         end.each do |committee|
           characterize do
             has committee.name, :options => committee.options.slice(:measures, :display_with)
