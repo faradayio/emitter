@@ -10,8 +10,9 @@ module BrighterPlanet
     REQUIRED_COMPONENTS = %w{
       carbon_model
       characterization
-      data summarization
+      data
       relationships
+      summarization
     }
     
     def included(base)
