@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'activesupport', '>=2.3.4'
-  s.add_dependency 'charisma'
+  s.add_dependency 'charisma', '>=0.3.0'
   s.add_dependency 'cohort_scope'
   s.add_dependency 'data_miner', '>=1.1' unless ENV['LOCAL_DATA_MINER']
   s.add_dependency 'earth' unless ENV['LOCAL_EARTH']
