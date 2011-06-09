@@ -18,11 +18,6 @@ module BrighterPlanet
       summarization
     }
     
-    EXTRA_DATA_MINER_STEPS = [
-      :create_table!,
-      :run_data_miner_on_parent_associations!
-    ]
-    
     # "included" not "self.included"
     # why?
     # This module **extends other modules**
@@ -59,11 +54,11 @@ module BrighterPlanet
       end
 
       base.send :include, "::BrighterPlanet::#{common_camel}::Data".constantize
-      # reverse these first because it's LIFO
-      EXTRA_DATA_MINER_STEPS.reverse.each do |step|
-        unless base.data_miner_config.steps.any? { |step| step.description == step }
-          base.data_miner_config.steps.unshift ::DataMiner::Process.new(base.data_miner_config, step)
-        end
+      unless base.data_miner_config.steps.any? { |step| step.description == :create_table! }
+        base.data_miner_config.steps.unshift ::DataMiner::Process.new(base.data_miner_config, :create_table!)
+      end
+      unless base.data_miner_config.steps.any? { |step| step.description == :run_data_miner_on_parent_associations! }
+        base.data_miner_config.steps.push ::DataMiner::Process.new(base.data_miner_config, :run_data_miner_on_parent_associations!)
       end
 
       base.extend ::SummaryJudgement
