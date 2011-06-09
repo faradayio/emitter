@@ -2,14 +2,10 @@ module BrighterPlanet
   module Biplane
     module Data
       def self.included(base)
-        base.data_miner do
-          schema do
-            float :distance
-            float :payload
-            integer :dirigible_class_id
-          end
-
-          process :run_data_miner_on_belongs_to_associations
+        base.create_table do
+          float :distance
+          float :payload
+          integer :dirigible_class_id
         end
       end
     end

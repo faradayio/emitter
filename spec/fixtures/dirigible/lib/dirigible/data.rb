@@ -2,14 +2,16 @@ module BrighterPlanet
   module Dirigible
     module Data
       def self.included(base)
+        base.create_table do
+          float :distance
+          float :payload
+          integer :dirigible_class_id
+        end
+        
         base.data_miner do
-          schema do
-            float :distance
-            float :payload
-            integer :dirigible_class_id
+          process "the first step defined in the emitter module" do
+            # just make sure i'm here
           end
-
-          process :run_data_miner_on_belongs_to_associations
         end
       end
     end

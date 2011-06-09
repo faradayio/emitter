@@ -10,7 +10,7 @@ describe BrighterPlanet::Emitter do
       $:.unshift File.expand_path('fixtures/dirigible/lib', File.dirname(__FILE__))
       require 'dirigible'
       Airship.send :include, BrighterPlanet::Dirigible
-      Airship.execute_schema
+      Airship.create_table!
 
       $:.unshift File.expand_path('fixtures/biplane/lib', File.dirname(__FILE__))
     end
@@ -34,6 +34,12 @@ describe BrighterPlanet::Emitter do
     
     it 'should state its own scope' do
       Airship.emission_scope.should == 'Anthropogenic emissions resulting from the inflation, launching, and acceleration of dirigibles'
+    end
+    
+    it 'should have extra data_miner steps' do
+      Airship.data_miner_config.steps[0].description.should == :create_table!
+      Airship.data_miner_config.steps[1].description.should == :run_data_miner_on_parent_associations!
+      Airship.data_miner_config.steps[2].description.should == "the first step defined in the emitter module"
     end
   end
 end
