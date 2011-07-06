@@ -34,7 +34,7 @@ module BrighterPlanet
     end
 
     # TODO units :metres_per_litre => 'm/l'
-    class BigLengthPerVolumne < ::Charisma::Measurement
+    class BigLengthPerVolume < ::Charisma::Measurement
       units :kilometres_per_litre => 'km/l'
     end
     
