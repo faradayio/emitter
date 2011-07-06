@@ -5,6 +5,7 @@ module BrighterPlanet
         base.create_table do
           float :distance
           float :payload
+          float :surface_area
           integer :dirigible_class_id
         end
         

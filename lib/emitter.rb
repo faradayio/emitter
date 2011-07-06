@@ -8,6 +8,8 @@ require 'summary_judgement'
 require 'falls_back_on'
 require 'create_table'
 
+require 'emitter/measurement'
+
 module BrighterPlanet
   module Emitter
     REQUIRED_COMPONENTS = %w{

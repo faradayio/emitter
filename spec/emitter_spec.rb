@@ -41,6 +41,13 @@ describe BrighterPlanet::Emitter do
       Airship.data_miner_config.steps[1].description.should == "the first step defined in the emitter module"
       Airship.data_miner_config.steps[2].description.should == :run_data_miner_on_parent_associations!
     end
+    
+    it 'should have units' do
+      a = Airship.new :distance => 1500, :surface_area => 200, :payload => 1000
+      a.characteristics[:distance].units.to_s[0..2].should == 'met' # meters or metres
+      a.characteristics[:payload].units.should == :kilograms
+      a.characteristics[:surface_area].units.should == :square_metres
+    end
   end
 end
 
