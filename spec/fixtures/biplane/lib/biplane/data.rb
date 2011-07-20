@@ -2,7 +2,7 @@ module BrighterPlanet
   module Biplane
     module Data
       def self.included(base)
-        base.create_table do
+        base.force_schema do
           float :distance
           float :payload
           integer :dirigible_class_id

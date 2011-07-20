@@ -6,7 +6,7 @@ require 'charisma'
 require 'data_miner'
 require 'summary_judgement'
 require 'falls_back_on'
-require 'create_table'
+require 'force_schema'
 
 require 'emitter/measurement'
 
@@ -56,8 +56,8 @@ module BrighterPlanet
       end
 
       base.send :include, "::BrighterPlanet::#{common_camel}::Data".constantize
-      unless base.data_miner_config.steps.any? { |step| step.description == :create_table! }
-        base.data_miner_config.steps.unshift ::DataMiner::Process.new(base.data_miner_config, :create_table!)
+      unless base.data_miner_config.steps.any? { |step| step.description == :force_schema! }
+        base.data_miner_config.steps.unshift ::DataMiner::Process.new(base.data_miner_config, :force_schema!)
       end
       unless base.data_miner_config.steps.any? { |step| step.description == :run_data_miner_on_parent_associations! }
         base.data_miner_config.steps.push ::DataMiner::Process.new(base.data_miner_config, :run_data_miner_on_parent_associations!)

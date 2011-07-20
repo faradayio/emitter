@@ -2,7 +2,7 @@ module BrighterPlanet
   module Dirigible
     module Data
       def self.included(base)
-        base.create_table do
+        base.force_schema do
           float :distance
           float :payload
           float :surface_area
