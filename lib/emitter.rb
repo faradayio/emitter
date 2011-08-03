@@ -13,7 +13,7 @@ require 'emitter/measurement'
 module BrighterPlanet
   module Emitter
     REQUIRED_COMPONENTS = %w{
-      carbon_model
+      impact_model
       characterization
       data
       relationships
@@ -37,17 +37,17 @@ module BrighterPlanet
         require "#{common_name}/#{component}"
       end
       
-      base.instance_variable_set :@emission_scope, @emission_scope if @emission_scope
+      base.instance_variable_set :@impact_scope, @impact_scope if @impact_scope
       
       base.extend ::Leap::Subject
-      base.send :include, "::BrighterPlanet::#{common_camel}::CarbonModel".constantize
+      base.send :include, "::BrighterPlanet::#{common_camel}::ImpactModel".constantize
 
       base.send :include, ::Charisma
       base.send :include, "::BrighterPlanet::#{common_camel}::Characterization".constantize
       base.class_eval do
         preexisting = characterization.keys
-        decisions[:emission].committees.reject do |committee|
-          committee.name == :emission or preexisting.include?(committee.name)
+        decisions[:impact].committees.reject do |committee|
+          preexisting.include?(committee.name)
         end.each do |committee|
           characterize do
             has committee.name, :options => committee.options.slice(:measures, :display_with)
@@ -78,13 +78,13 @@ module BrighterPlanet
 
     # this gets added as a class method to the emitter module
     def scope(statement)
-      @emission_scope = statement
+      @impact_scope = statement
     end
         
     module ClassMethods
       # this will have been set by self.included on the emitter module
-      def emission_scope
-        @emission_scope
+      def impact_scope
+        @impact_scope
       end
     end
   end

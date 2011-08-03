@@ -1,6 +1,6 @@
 = emitter
 
-Base gem for Brighter Planet's carbon model gems. See http://carbon.brighterplanet.com
+Software framework for Brighter Planet's impact modeling libraries. See http://carbon.brighterplanet.com
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +14,4 @@ Base gem for Brighter Planet's carbon model gems. See http://carbon.brighterplan
 
 == Copyright
 
-Copyright (c) 2010 Brighter Planet, Inc. See LICENSE for details.
+Copyright 2010, 2011 Brighter Planet, Inc. See LICENSE and LICENSE-PREAMBLE for details.

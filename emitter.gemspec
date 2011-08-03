@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Andy Rossmeissl", "Seamus Abshere", "Ian Hough", "Matt Kling", 'Derek Kastner']
   s.email       = %q{derek@brighterplanet.com}
   s.homepage    = "https://github.com/brighterplanet/emitter"
-  s.summary     = %q{The mother of all carbon models}
-  s.description = %q{A software model in Ruby for the greenhouse gas emissions}
+  s.summary     = %q{A framework for modelling the impact of real-world entities.}
+  s.description = %q{A framework for modelling the impact of real-world entities.}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'data_miner', '>=1.2.1' unless ENV['LOCAL_DATA_MINER']
   s.add_dependency 'earth', '>=0.5.1' unless ENV['LOCAL_EARTH']
   s.add_dependency 'falls_back_on'
-  s.add_dependency 'leap'
+  s.add_dependency 'leap', '>=0.5.4'
   s.add_dependency 'summary_judgement'
   s.add_dependency 'timeframe'
   s.add_dependency 'weighted_average'
