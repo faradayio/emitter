@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'summary_judgement'
   s.add_dependency 'timeframe'
   s.add_dependency 'weighted_average'
-  s.add_dependency 'force_schema' unless ENV['LOCAL_FORCE_SCHEMA']
+  s.add_dependency 'mini_record' unless ENV['LOCAL_MINI_RECORD']
   s.add_development_dependency 'activerecord', '~>3'
   s.add_development_dependency 'bueller'
   s.add_development_dependency 'sniff', '>=0.8.2' unless ENV['LOCAL_SNIFF']
