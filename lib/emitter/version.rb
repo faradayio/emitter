@@ -1,3 +1,3 @@
 module Emitter
-  VERSION = "0.5.2"
+  VERSION = "0.10.0"
 end
