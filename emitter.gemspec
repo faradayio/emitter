@@ -30,5 +30,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'mini_record-compat'
   s.add_development_dependency 'activerecord', '~>3'
   s.add_development_dependency 'bueller'
-  s.add_development_dependency 'sniff', '>=0.8.2' unless ENV['LOCAL_SNIFF']
+  s.add_development_dependency 'sniff', '~>0.11.0' unless ENV['LOCAL_SNIFF']
 end
