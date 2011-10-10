@@ -2,11 +2,9 @@ module BrighterPlanet
   module Biplane
     module Data
       def self.included(base)
-        base.force_schema do
-          float :distance
-          float :payload
-          integer :dirigible_class_id
-        end
+        base.col :distance, :type => :float
+        base.col :payload, :type => :float
+        base.col :dirigible_class_id, :type => :integer
       end
     end
   end
