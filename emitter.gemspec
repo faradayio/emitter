@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activesupport', '>=2.3.10'
   s.add_dependency 'charisma'
-  s.add_dependency 'cohort_scope'
   s.add_dependency 'data_miner', '>=1.2.1' unless ENV['LOCAL_DATA_MINER']
   s.add_dependency 'earth', '>=0.5.1' unless ENV['LOCAL_EARTH']
   s.add_dependency 'falls_back_on'

@@ -1,7 +1,6 @@
 require 'active_support'
 require 'active_support/core_ext'
 require 'leap'
-require 'cohort_scope'
 require 'charisma'
 require 'data_miner'
 require 'summary_judgement'
