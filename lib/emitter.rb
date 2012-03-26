@@ -5,7 +5,7 @@ require 'charisma'
 require 'data_miner'
 require 'summary_judgement'
 require 'falls_back_on'
-require 'mini_record'
+require 'active_record_inline_schema'
 
 require 'emitter/measurement'
 
