@@ -37,9 +37,9 @@ describe BrighterPlanet::Emitter do
     end
     
     it 'should have extra data_miner steps' do
-      Airship.data_miner_config.steps[0].description.should == :auto_upgrade!
-      Airship.data_miner_config.steps[1].description.should == "the first step defined in the emitter module"
-      Airship.data_miner_config.steps[2].description.should == :run_data_miner_on_parent_associations!
+      Airship.data_miner_script.steps[0].description.should == :auto_upgrade!
+      Airship.data_miner_script.steps[1].description.should == "the first step defined in the emitter module"
+      Airship.data_miner_script.steps[2].description.should == :run_data_miner_on_parent_associations!
     end
     
     it 'should have units' do

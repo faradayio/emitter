@@ -1,0 +1,6 @@
+0.11.2 / 2012-04-18
+
+* Enhancements
+
+  * DRY up data miner script code injection with data_miner 2.x syntax
+  * Tested with MRI 1.8, MRI 1.9, and JRuby 1.6.7+

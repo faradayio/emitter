@@ -55,12 +55,9 @@ module BrighterPlanet
       end
 
       base.send :include, "::BrighterPlanet::#{common_camel}::Data".constantize
-      unless base.data_miner_config.steps.any? { |step| step.description == :auto_upgrade! }
-        base.data_miner_config.steps.unshift ::DataMiner::Process.new(base.data_miner_config, :auto_upgrade! )
-      end
-      unless base.data_miner_config.steps.any? { |step| step.description == :run_data_miner_on_parent_associations! }
-        base.data_miner_config.steps.push ::DataMiner::Process.new(base.data_miner_config, :run_data_miner_on_parent_associations!)
-      end
+
+      base.data_miner_script.prepend_once :process, :auto_upgrade!
+      base.data_miner_script.append_once :process, :run_data_miner_on_parent_associations!
 
       base.extend ::SummaryJudgement
       base.send :include, "::BrighterPlanet::#{common_camel}::Summarization".constantize
