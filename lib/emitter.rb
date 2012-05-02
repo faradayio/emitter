@@ -82,6 +82,10 @@ module BrighterPlanet
       def impact_scope
         @impact_scope
       end
+
+      def emitter
+        name.demodulize
+      end
     end
   end
 end

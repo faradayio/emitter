@@ -35,6 +35,10 @@ describe BrighterPlanet::Emitter do
     it 'should state its own scope' do
       Airship.impact_scope.should == 'Anthropogenic impacts resulting from the inflation, launching, and acceleration of dirigibles'
     end
+
+    it 'should state its emitter name' do
+      Airship.emitter.should == 'Airship'
+    end
     
     it 'should have extra data_miner steps' do
       Airship.data_miner_script.steps[0].description.should == :auto_upgrade!
