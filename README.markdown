@@ -20,9 +20,9 @@ Base module for Brighter Planet's emitters. See the [Brighter Planet developer p
 Your emitter must define some modules under `lib/my_emitter/`, they are:
 * `lib/my_emitter/impact_model.rb` - `module MyEmitter::ImpactModel` - defines the [Leap](http://rubygems.org/gems/leap) decisions that calculate an impact.
 * `lib/my_emitter/characterization.rb` - `module MyEmitter::Characterization` - defines the [Characteristics](http://rubygems.org/gems/charisma) that describe the model's inputs.
-* `lib/my_emitter/data.rb` - `module MyEmitter::Data` - defines the (schema)[http://rubygems.org/gems/mini\_record] definitions for the emitter and [DataMiner](http://rubygems.org/gems/data\_miner) processes that fetch and store data for the emitter.
+* `lib/my_emitter/data.rb` - `module MyEmitter::Data` - defines the [schema](http://rubygems.org/gems/mini\_record) definitions for the emitter and [DataMiner](http://rubygems.org/gems/data\_miner) processes that fetch and store data for the emitter.
 * `lib/my_emitter/relationships.rb` - `module MyEmitter::Relationships` - defines the ActiveRecord relationships between the emitter and other [Earth](http://rubygems.org/gems/earth) models.
-* `lib/my_emitter/summarization.rb` - `moduel MyEmitter::Summarization` - defines phrases that describe various attributes ([SummaryJudgement descriptors](http://rubygems.org/gems/summary\_judgement))about an emitter that are displayed on CM1's methodology pages.
+* `lib/my_emitter/summarization.rb` - `moduel MyEmitter::Summarization` - defines phrases that describe various attributes ([SummaryJudgement descriptors](http://rubygems.org/gems/summary\_judgement)) about an emitter that are displayed on CM1's methodology pages.
 
 ## Tools
 
