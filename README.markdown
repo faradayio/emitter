@@ -28,6 +28,13 @@ Your emitter must define some modules under `lib/my_emitter/`, they are:
 
 You can use the [bp gem](http://github.com/brighterplanet/bp) to generate the skeleton for a new emitter.
 
+## Magic
+
+Emitter, once included, will perform a couple tasks automatically:
+
+1. It converts committees into characterizations that are not already characterized.
+1. It adds `auto_upgrade!` and `run_data_miner_on_parent_associations!` tasks to DataMiner so that a call to `MyEmitter.run_data_miner!` will update the emitter's schema and run DataMiner tasks on any belongs\_to associations.
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
