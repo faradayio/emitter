@@ -45,6 +45,6 @@ Emitter, once included, will perform a couple tasks automatically:
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== Copyright
+## Copyright
 
 Copyright 2010, 2011 Brighter Planet, Inc. See LICENSE and LICENSE-PREAMBLE for details.
