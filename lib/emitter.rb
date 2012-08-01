@@ -18,6 +18,13 @@ module BrighterPlanet
       relationships
       summarization
     }
+
+    def self.extended(target)
+      common_name = target.name.demodulize.underscore
+      REQUIRED_COMPONENTS.each do |component|
+        require "#{common_name}/#{component}"
+      end
+    end
     
     # "included" not "self.included"
     # why?
@@ -31,10 +38,6 @@ module BrighterPlanet
       # here self is the emitter module
       common_name = self.name.demodulize.underscore
       common_camel = common_name.camelcase
-
-      REQUIRED_COMPONENTS.each do |component|
-        require "#{common_name}/#{component}"
-      end
       
       base.instance_variable_set :@impact_scope, @impact_scope if @impact_scope
       
