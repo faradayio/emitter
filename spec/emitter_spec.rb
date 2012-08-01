@@ -29,7 +29,7 @@ describe BrighterPlanet::Emitter do
       expect do
         require 'biplane'
         Aircraft.send :include, BrighterPlanet::Biplane
-      end.should_not raise_error
+      end.not_to raise_error
     end
     
     it 'should state its own scope' do
