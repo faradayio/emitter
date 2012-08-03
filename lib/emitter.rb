@@ -1,11 +1,10 @@
+require 'active_record_inline_schema'
 require 'active_support'
 require 'active_support/core_ext'
-require 'leap'
 require 'charisma'
-require 'data_miner'
-require 'summary_judgement'
 require 'falls_back_on'
-require 'active_record_inline_schema'
+require 'leap'
+require 'summary_judgement'
 
 require 'emitter/measurement'
 

@@ -1,6 +1,5 @@
-require 'rubygems'
 require 'bundler/setup'
 require 'sniff'
-Sniff.init File.join(File.dirname(__FILE__), '..', '..')
+Sniff.init File.expand_path('../..', __FILE__)
 
 require 'emitter'
