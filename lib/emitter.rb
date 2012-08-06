@@ -10,21 +10,6 @@ require 'emitter/measurement'
 
 module BrighterPlanet
   module Emitter
-    REQUIRED_COMPONENTS = %w{
-      impact_model
-      characterization
-      data
-      relationships
-      summarization
-    }
-
-    def self.extended(target)
-      common_name = target.name.demodulize.underscore
-      REQUIRED_COMPONENTS.each do |component|
-        require "#{common_name}/#{component}"
-      end
-    end
-    
     # "included" not "self.included"
     # why?
     # This module **extends other modules**
