@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'data_miner'
 
 describe BrighterPlanet::Emitter do
   describe '.included' do

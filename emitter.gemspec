@@ -27,5 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'weighted_average'
 
   s.add_development_dependency 'bueller'
-  s.add_development_dependency 'sniff'
+  s.add_development_dependency 'activerecord-mysql2-adapter'
+  s.add_development_dependency 'rspec'
 end

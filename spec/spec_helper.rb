@@ -1,6 +1,8 @@
 require 'bundler/setup'
 
-require 'sniff'
-Sniff.init File.expand_path('../..', __FILE__)
-
 require 'emitter'
+
+ENV['DATABASE_URL'] ||= "mysql2://root:password@localhost/test_emitter"
+require 'active_record'
+ActiveRecord::Base.establish_connection
+ActiveRecord::Base.connection
