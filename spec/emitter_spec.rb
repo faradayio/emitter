@@ -11,7 +11,6 @@ describe BrighterPlanet::Emitter do
       $:.unshift File.expand_path('fixtures/dirigible/lib', File.dirname(__FILE__))
       require 'dirigible'
       Airship.send :include, BrighterPlanet::Dirigible
-      Airship.auto_upgrade!
 
       $:.unshift File.expand_path('fixtures/biplane/lib', File.dirname(__FILE__))
     end

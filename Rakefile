@@ -1,5 +1,4 @@
 require 'bundler/setup'
-require 'bundler/gem_tasks'
 
 require 'bueller'
 Bueller::Tasks.new
