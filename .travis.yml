@@ -1,0 +1,8 @@
+---
+language: ruby
+rvm:
+- 1.9.3
+env:
+- DATABASE_URL=mysql://root@127.0.0.1/test_emitter
+before_script:
+- rake db:create
