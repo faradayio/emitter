@@ -21,10 +21,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'charisma'
   s.add_dependency 'data_miner', '~> 2'
   s.add_dependency 'falls_back_on'
-  s.add_dependency 'leap', '~> 0.5.4'
+  s.add_dependency 'leap', '~> 0.5.8'
   s.add_dependency 'summary_judgement'
 
-  s.add_development_dependency 'bueller'
+  s.add_development_dependency 'bueller', '~> 0.0.8'
   s.add_development_dependency 'activerecord-mysql2-adapter'
   s.add_development_dependency 'rspec'
 end
